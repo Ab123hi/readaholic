@@ -1,6 +1,6 @@
 from flask import Flask, render_template
-from forms import AdminRegistrationForm
-from forms import AdminLoginForm
+from forms import AdminRegistrationForm, AdminLoginForm, AdminAddBooksForm
+
 
 app = Flask(__name__)
 app.config['SECRET_KEY']='secret_key_33'
@@ -33,6 +33,13 @@ def login():
     if form.validate_on_submit():
         print(form.data)
     return render_template("login.html",form=form)
+
+@app.route("/books", methods=["GET","POST"])
+def books():
+    form = AdminAddBooksForm()
+    if form.validate_on_submit():
+        print(form.data)
+    return render_template("book.html",form=form)
 
 if __name__ == "__main__":
     app.run(debug=True)
