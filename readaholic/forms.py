@@ -19,7 +19,7 @@ class AdminAddBooksForm(FlaskForm):
     title = StringField("Title", validators=[DataRequired()])
     author = StringField("Author", validators=[DataRequired()])
     isbn = IntegerField("ISBN", validators=[DataRequired()])
-    genre = SelectField("Genre", validators=[DataRequired()], choices=[('book1', 'Fiction'), ('book2', 'Mystery'), ('book3', 'Politics'),('book4', 'History')])
+    genre = SelectField("Genre", validators=[DataRequired()], choices=[('book1', 'Choose...'), ('book2', 'Fiction'), ('book3', 'Mystery'), ('book4', 'Politics'),('book5', 'History')])
     shop_link = URLField("Shop Link", validators=[DataRequired()])
     rating = FloatField("Rating", validators=[DataRequired()])
     upload_cover_image = FileField("Upload Cover Image", validators=[DataRequired()])
@@ -27,3 +27,9 @@ class AdminAddBooksForm(FlaskForm):
 
     submit = SubmitField("Save")
     
+class AdminCommentForm(FlaskForm):
+    name = StringField("Name")
+    email = StringField("Email", validators=[DataRequired(), Email()])
+    comment = StringField("Comment", validators=[DataRequired(), Length(min=10)])
+
+    submit = SubmitField("Comment")
