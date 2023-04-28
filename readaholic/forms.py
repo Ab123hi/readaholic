@@ -19,7 +19,7 @@ class AdminAddBooksForm(FlaskForm):
     title = StringField("Title", validators=[DataRequired()])
     author = StringField("Author", validators=[DataRequired()])
     isbn = IntegerField("ISBN", validators=[DataRequired()])
-    genre = SelectField("Genre", validators=[DataRequired()], choices=[('book1', 'Choose...'), ('book2', 'Fiction'), ('book3', 'Mystery'), ('book4', 'Politics'),('book5', 'History')])
+    genre = SelectField("Genre", validators=[DataRequired()], choices=[('select', 'Choose...'), ('Fiction', 'Fiction'), ('Suspense', 'Mystery'), ('Polity', 'Politics'),('Historical', 'History'),('Educational', 'Mathematics')])
     shop_link = URLField("Shop Link", validators=[DataRequired()])
     rating = FloatField("Rating", validators=[DataRequired()])
     upload_cover_image = FileField("Upload Cover Image", validators=[DataRequired()])
